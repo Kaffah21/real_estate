@@ -4,9 +4,12 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\PropertyController;
+use Laravel\Socialite\Facades\Socialite;
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 Route::get('/', function () {
-    return view('/dashboard');
+    return view('welcome');
 });
 
 Route::get('/dashboard', function () {
@@ -29,6 +32,36 @@ Route::get('/villa', [App\Http\Controllers\VillaController::class, 'index'])->na
 
 Route::resource('promos', PromoController::class);
 Route::resource('properties', PropertyController::class);
+
+Route::get('/auth/google', function () {
+    return Socialite::driver('google')->redirect();
+})->name('login.google');
+
+Route::get('/auth/google/callback', function () {
+    $user = Socialite::driver('google')->stateless()->user();
+
+    $existingUser = User::where('email', $user->getEmail())->first();
+
+    if ($existingUser) {
+        Auth::login($existingUser);
+    } else {
+        $newUser = User::create([
+            'name' => $user->getName(),
+            'email' => $user->getEmail(),
+            'google_id' => $user->getId(),
+            'avatar' => $user->getAvatar(),
+        ]);
+
+        Auth::login($newUser);
+    }
+
+    return redirect('/dashboard');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware('auth');
+
 
 
 require __DIR__.'/auth.php';
