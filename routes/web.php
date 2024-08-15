@@ -55,7 +55,7 @@ Route::get('/auth/google/callback', function () {
         Auth::login($newUser);
     }
 
-    return redirect('/dashboard');
+    return redirect('/welcome');
 });
 
 Route::get('/dashboard', function () {

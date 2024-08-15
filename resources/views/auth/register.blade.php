@@ -48,5 +48,10 @@
                 {{ __('Register') }}
             </x-primary-button>
         </div>
+        <div class="flex justify-center mt-6">
+            <a href="{{ route('login.google') }}" class="btn btn-primary">
+                Login with Google
+            </a>
+        </div>
     </form>
 </x-guest-layout>
