@@ -3,7 +3,7 @@
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
     <div class="flex justify-center mb-6">
-        <img src="{{ asset('asset/') }}" alt="Logo" class="h-16 w-auto">
+        <form method="POST" action="{{ route('login') }}" style="background-image: url('{{ asset('asset/logo.png') }}'); background-size: cover; background-position: center;">
     </div>
 
     <form method="POST" action="{{ route('login') }}">
