@@ -3,7 +3,7 @@
         <nav class="bg-gray-800">
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 <div class="relative flex items-center justify-between h-16">
-                    
+
                     <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                         <div class="flex-shrink-0">
                             <a href="{{ url('/home') }}" class="text-white text-lg font-semibold">Dashboard</a>
@@ -18,8 +18,17 @@
                         </div>
                         <div class="hidden sm:flex sm:ml-auto">
                             <div class="flex space-x-4">
-                                <a href="{{ url('/auth/login') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Login</a>
-                                <a href="{{ url('/auth/register') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Register</a>
+                                <input class="search fa fas-search" type="search" placeholder="Search..." style="border-radius: 25px; padding: 4px; border: 1px solid #ddd;" />
+                                <a href="{{ route('login') }}"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Login
+                </a>
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}"
+                    class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+                    Register
+                </a>
+                @endif
                             </div>
                         </div>
                     </div>

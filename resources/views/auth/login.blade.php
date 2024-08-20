@@ -37,21 +37,24 @@
         </div>
 
         <div class="flex items-center justify-center mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
+            <div class="flex justify-center mt-6">
+                <a href="{{ route('login.google') }}" class="btn btn-primary">
+                    Login with Google
                 </a>
-            @endif
+            </div>
 
             <x-primary-button class="ms-3">
                 {{ __('Log in') }}
             </x-primary-button>
 
+
         </div>
-        <div class="flex justify-center mt-6">
-            <a href="{{ route('login.google') }}" class="btn btn-primary">
-                Login with Google
-            </a>
-        </div>
+        @if (Route::has('register'))
+                <a href="{{ route('register') }}"
+                    class="rounded-md px-3 py-2 text-black ring-1 justify-content: center text-size 10 italic ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white ">
+                    Buat akun?
+                </a>
+                @endif
+
     </form>
 </x-guest-layout>
