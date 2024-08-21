@@ -46,6 +46,7 @@
                 </label>
             </div>
 
+<<<<<<< HEAD
             <!-- Log in Button -->
             <div class="flex items-center justify-center mt-4">
                 <x-primary-button class="ms-3">
@@ -63,11 +64,32 @@
             </div>
 
             <!-- Google Login -->
+=======
+        <div class="flex items-center justify-center mt-4">
+>>>>>>> a4cfda38a9d52c740704f6c97f11eb94c57133a3
             <div class="flex justify-center mt-6">
                 <a href="{{ route('login.google') }}" class="btn btn-primary">
                     Login with Google
                 </a>
             </div>
+<<<<<<< HEAD
         </form>
     </body>
+=======
+
+            <x-primary-button class="ms-3">
+                {{ __('Log in') }}
+            </x-primary-button>
+
+
+        </div>
+        @if (Route::has('register'))
+                <a href="{{ route('register') }}"
+                    class="rounded-md px-3 py-2 text-black ring-1 justify-content: center text-size 10 italic ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white ">
+                    Buat akun?
+                </a>
+                @endif
+
+    </form>
+>>>>>>> a4cfda38a9d52c740704f6c97f11eb94c57133a3
 </x-guest-layout>
