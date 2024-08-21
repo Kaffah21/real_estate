@@ -58,8 +58,8 @@ Route::get('/auth/google/callback', function () {
     return redirect('/welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/welcome', function () {
+    return view('welcome');
 })->middleware('auth');
 
 
