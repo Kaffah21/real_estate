@@ -46,7 +46,7 @@
         </nav>
 
     </x-slot>
-
+<div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -56,4 +56,64 @@
             </div>
         </div>
     </div>
+
+    <!-- Slideshow Section -->
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div class="p-6">
+                <!-- Slideshow -->
+                <div class="relative">
+                    <div class="relative h-64 overflow-hidden rounded-lg">
+                        <div class="absolute inset-0">
+                            <div class="flex items-center justify-center w-full h-full">
+                                <div class="w-full h-full bg-gray-200 animate-pulse"></div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0">
+                            <div class="flex items-center justify-center w-full h-full">
+                                <div class="w-full h-full bg-gray-300 animate-pulse"></div>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0">
+                            <div class="flex items-center justify-center w-full h-full">
+                                <div class="w-full h-full bg-gray-400 animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Card Section -->
+<div class="py-12">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            <!-- Card 1 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-2">Card Title 1</h3>
+                <p class="text-gray-600">This is a description for card 1. It provides a brief overview of the content.</p>
+                <a href="#" class="text-indigo-600 hover:text-indigo-800 mt-4 inline-block">Learn More</a>
+            </div>
+            <!-- Card 2 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-2">Card Title 2</h3>
+                <p class="text-gray-600">This is a description for card 2. It provides a brief overview of the content.</p>
+                <a href="#" class="text-indigo-600 hover:text-indigo-800 mt-4 inline-block">Learn More</a>
+            </div>
+            <!-- Card 3 -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-lg font-semibold mb-2">Card Title 3</h3>
+                <p class="text-gray-600">This is a description for card 3. It provides a brief overview of the content.</p>
+                <a href="#" class="text-indigo-600 hover:text-indigo-800 mt-4 inline-block">Learn More</a>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Include Footer -->
+<x-footer />
 </x-app-layout>
