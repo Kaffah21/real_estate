@@ -2,6 +2,7 @@
 
 use App\Models\Promo;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class PromoController extends Controller
 {
