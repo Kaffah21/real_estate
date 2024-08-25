@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PromoController;
 use App\Http\Controllers\PropertyController;
 use Laravel\Socialite\Facades\Socialite;
+use App\Http\Controllers\CommentController;
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -28,12 +29,17 @@ Route::get('/tentang', function () {
     return view('tentang');
 })->name('tentang');
 
-Route::get('/rumah', [App\Http\Controllers\RumahController::class, 'index'])->name('rumah');
+Route::get('/rumah', function () {
+    return view('rumah');
+})->name('rumah');
 
-Route::get('/villa', [App\Http\Controllers\VillaController::class, 'index'])->name('villa');
+Route::get('/villa', function () {
+    return view('villa');
+})->name('villa');
+// Route::get('/villa', [App\Http\Controllers\VillaController::class, 'index'])->name('villa');
 
 // Route::resource('promos', PromoController::class);
-// Route::resource('properties', PropertyController::class);
+Route::resource('properties', PropertyController::class);
 
 Route::get('/auth/google', function () {
     return Socialite::driver('google')->redirect();
@@ -73,6 +79,7 @@ require __DIR__.'/auth.php';
 //      Route::get('dashboard', [UserController::class,'index'])->name('dashboard');
 
 // });
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
 
 Route::middleware(['admin'])->group(function () {

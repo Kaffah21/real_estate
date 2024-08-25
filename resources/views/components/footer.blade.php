@@ -11,7 +11,8 @@
             <!-- Left Section: Website Info -->
             <div class="w-1/2">
                 <h5 class="text-lg font-semibold">Real Estate</h5>
-                <p class="mt-2">Welcome to our real estate platform where you can find the best properties that suit your needs. Explore our villas, houses, and more to find your dream home.</p>
+                <p class="mt-2">Selamat datang di platform properti kami, tempat di mana Anda dapat menemukan berbagai pilihan properti untuk disewa atau dibeli
+                    yang sesuai dengan kebutuhan Anda. </p>
             </div>
             <!-- Right Section: Links -->
             <div class="w-1/2 flex flex-col items-end">
