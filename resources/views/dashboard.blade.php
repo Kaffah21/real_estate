@@ -1,5 +1,5 @@
 <x-app-layout>
-    <x-slot name="header">
+    {{-- <x-slot name="header">
         <nav class="bg-gray-800">
             <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
                 <div class="relative flex items-center justify-between h-16">
@@ -46,7 +46,7 @@
             </div>
         </nav>
 
-    </x-slot>
+    </x-slot> --}}
 <div>
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

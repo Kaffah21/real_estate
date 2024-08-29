@@ -7,6 +7,9 @@ use App\Http\Controllers\PromoController;
 use App\Http\Controllers\PropertyController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\AdminController;
+
 
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -88,3 +91,12 @@ Route::middleware(['admin'])->group(function () {
     });
 });
 //
+Route::get('admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
+Route::post('admin/login', [AdminController::class, 'login']);
+Route::middleware('auth:admin')->group(function () {
+    Route::get('admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
+});
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::get('properties', [AdminController::class, 'showProperties'])->name('properties');
+});
