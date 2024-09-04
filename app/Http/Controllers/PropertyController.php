@@ -45,7 +45,7 @@ class PropertyController extends Controller
         $request->validate([
             'name' => 'required',
             'location' => 'required',
-            'price' => 'required|numeric',
+            'price' => 'required|string',
         ]);
 
         $property->update($request->all());

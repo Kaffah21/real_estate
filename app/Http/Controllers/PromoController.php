@@ -22,7 +22,7 @@ class PromoController extends Controller
         $validated = $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'nullable|string',
-            'image' => 'required|image|max:2048',
+            'image' => 'required|image|max:1',
         ]);
 
         if ($request->hasFile('image')) {

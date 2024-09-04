@@ -9,6 +9,8 @@ use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\JoinCompanyController;
+
 
 
 use App\Models\User;
@@ -39,6 +41,15 @@ Route::get('/rumah', function () {
 Route::get('/villa', function () {
     return view('villa');
 })->name('villa');
+
+Route::get('bergabung', function(){
+    return view('bergabung');
+})->name('bergabung');
+
+Route::get('/join', [JoinCompanyController::class, 'showForm'])->name('join.form');
+Route::post('/join', [JoinCompanyController::class, 'submitForm'])->name('join.submit');
+
+
 // Route::get('/villa', [App\Http\Controllers\VillaController::class, 'index'])->name('villa');
 
 // Route::resource('promos', PromoController::class);
@@ -66,7 +77,7 @@ Route::get('/auth/google/callback', function () {
         Auth::login($newUser);
     }
 
-    return redirect('/welcome');
+    return redirect('/dashboard');
 });
 
 Route::get('/welcome', function () {
@@ -84,7 +95,7 @@ require __DIR__.'/auth.php';
 // });
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
-
+//Route admin
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin/dashboard', function () {
         // Rute ini hanya dapat diakses oleh pengguna dengan 'admin' usertype

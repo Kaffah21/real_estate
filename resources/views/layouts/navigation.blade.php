@@ -25,6 +25,9 @@
                         <x-nav-link :href="route('tentang')" :active="request()->routeIs('tentang')">
                             {{ __('Tentang') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('bergabung')" :active="request()->routeIs('bergabung')">
+                            {{ __('Bergabung') }}
+                        </x-nav-link>
                     </div>
                 </div>
 
@@ -150,6 +153,7 @@
                 <a href="{{ url('/tentang') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Tentang</a>
                 <a href="{{ url('/rumah') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Rumah</a>
                 <a href="{{ url('/villa') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Villa</a>
+                <a href="{{ url('/bergabung') }}" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Bergabung</a>
             </div>
         </div>
     </nav>

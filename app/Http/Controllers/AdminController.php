@@ -34,4 +34,14 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
+    public function index()
+    {
+        // // Ambil data statistik
+        // $totalUsers = User::count();
+        // $totalProperties = Property::count();
+        // $joinRequests = JoinRequest::count();
+
+        // Kirim data ke view
+        return view('admin.dashboard', compact('totalUsers', 'totalProperties', 'joinRequests'));
+    }
 }
