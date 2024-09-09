@@ -34,6 +34,12 @@ class AdminController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    public function showProperties()
+    {
+        return view('admin.properti');
+    }
+
     public function index()
     {
         // // Ambil data statistik

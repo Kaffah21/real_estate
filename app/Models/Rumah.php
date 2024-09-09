@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Rumah extends Model
 {
-    use HasFactory;
+    protected $fillable = [
+     'nama',
+     'deskripsi',
+     'harga',
+     'alamat',
+    ];
 }

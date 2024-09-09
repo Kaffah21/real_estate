@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    {{-- menambahkan Icon website --}}
+    <link rel="icon" href="{{ asset('asset/logo.png') }}" type="image/svg+xml">
+
     <style>
         /* Additional custom styles */
         .sidebar {
@@ -28,17 +31,28 @@
                 <a href="{{ route('admin.properties') }}" class="block px-4 py-2 text-gray-300 rounded-md hover:bg-gray-700">
                     Villa Properti
                 </a>
-                <!-- Add more sidebar links here if needed -->
+                <!-- Tambahkan lebih banyak tautan sidebar di sini jika diperlukan -->
+                <a href="{{ route('profile.edit') }}" class="block px-4 py-2 text-gray-300 rounded-md hover:bg-gray-700">
+                    Profil Saya
+                </a>
             </nav>
             <div class="px-4 py-6 border-t border-gray-600">
                 <div class="flex items-center space-x-2">
-                    <div class="h-8 w-8 rounded-full bg-indigo-500 flex items-center justify-center text-white font-bold">
-                        {{ substr(Auth::user()->name, 0, 1) }}
+                    <div class="h-8 w-8 rounded-full overflow-hidden bg-indigo-500 flex items-center justify-center text-white font-bold">
+                        @if(Auth::user()->profile_image)
+                            <img src="{{ asset('storage/' . Auth::user()->profile_image) }}" alt="{{ Auth::user()->name }}" class="h-full w-full object-cover">
+                        @else
+                            {{ substr(Auth::user()->name, 0, 1) }}
+                        @endif
                     </div>
                     <div>
                         <span class="text-gray-200">{{ Auth::user()->name }}</span>
                     </div>
                 </div>
+                <form method="POST" action="{{ route('logout') }}" class="mt-4">
+                    @csrf
+                    <button type="submit" class="text-red-500 hover:bg-gray-700 px-4 py-2 rounded-md w-full text-left">Logout</button>
+                </form>
             </div>
         </div>
     </aside>

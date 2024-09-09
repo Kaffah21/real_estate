@@ -20,6 +20,7 @@ class User extends Authenticatable
         'named',
         'emaild',
         'password',
+        'profile_image' //menambahkan profile
     ];
 
     /**

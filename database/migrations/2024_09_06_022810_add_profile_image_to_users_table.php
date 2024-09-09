@@ -11,14 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('rumah', function (Blueprint $table) {
-            $table->id();
-            $table->string('nama');
-            $table->text('alamat');
-            $table->integer('harga');
-            $table->integer('fasilitas');
-            $table->integer('luas_bangunan');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('profile_image')->nullable(); //menambahkan gambar
         });
     }
 
@@ -27,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('rumah');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('profile_image'); //menghapus foto jika proses gagal
+        });
     }
 };

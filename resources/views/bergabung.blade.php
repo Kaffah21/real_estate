@@ -13,7 +13,7 @@
                     <div class="flex flex-col md:flex-row">
                         <!-- Gambar di Kiri -->
                         <div class="md:w-1/3 mb-6 md:mb-0 flex items-center justify-center">
-                            <img src="{{ asset('asset/gabung.svg') }}" alt="Gambar Bergabung" class="w-full h-auto rounded-md shadow-md">
+                            <img src="{{ asset('asset/ilustrasi.png') }}" alt="Gambar Bergabung" class="w-full h-auto rounded-md shadow-md">
                         </div>
 
                         <!-- Form Bergabung dengan Perusahaan -->

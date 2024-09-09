@@ -10,6 +10,10 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JoinCompanyController;
+use App\Http\Controllers\Admin\RumahController;
+use App\Http\Controllers\Admin\VillaController;
+
+
 
 
 
@@ -28,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+
 
 Route::get('/tentang', function () {
     return view('tentang');
@@ -48,8 +52,7 @@ Route::get('bergabung', function(){
 
 Route::get('/join', [JoinCompanyController::class, 'showForm'])->name('join.form');
 Route::post('/join', [JoinCompanyController::class, 'submitForm'])->name('join.submit');
-
-
+});
 // Route::get('/villa', [App\Http\Controllers\VillaController::class, 'index'])->name('villa');
 
 // Route::resource('promos', PromoController::class);
@@ -59,7 +62,7 @@ Route::get('/auth/google', function () {
     return Socialite::driver('google')->redirect();
 })->name('login.google');
 
-Route::get('/auth/google/callback', function () {
+Route::get('/auth/google/caIIback', function () {
     $user = Socialite::driver('google')->stateless()->user();
 
     $existingUser = User::where('email', $user->getEmail())->first();
@@ -110,4 +113,12 @@ Route::middleware('auth:admin')->group(function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('properties', [AdminController::class, 'showProperties'])->name('properties');
+    Route::get('/admin/villas', [VillaController::class, 'index'])->name('admin.villas');
+
+});
+
+// menambahkan crud rumah//
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('rumah', RumahController::class);
 });

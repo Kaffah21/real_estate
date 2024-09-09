@@ -7,15 +7,16 @@
     <!-- Data Statistik -->
     <div class="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <!-- Kartu Statistik 1 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h3 class="text-lg font-semibold text-gray-900">Total Pengguna</h3>
-            {{-- <p class="text-2xl font-bold text-gray-700">{{ $totalUsers }}</p> --}}
+            <div class="bg-blue-500 p-6 rounded-lg shadow-lg transition-colors duration-300 hover:bg-blue-400">
+                <h3 class="text-lg font-semibold text-gray-700">Total Pengguna</h3>
+
+                {{-- <p class="text-2xl font-bold text-gray-700">{{ $totalUsers }}</p> --}}
             <p class="text-2xl font-bold text-gray-700">21</p>
 
-        </div>
+            </div>
 
         <!-- Kartu Statistik 2 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg">
+        <div class="bg-yellow-500 p-6 rounded-lg shadow-lg transition-colors duration-300 hover:bg-yellow-400">
             <h3 class="text-lg font-semibold text-gray-900">Jumlah Properti</h3>
             {{-- <p class="text-2xl font-bold text-gray-700">{{ $totalProperties }}</p> --}}
             <p class="text-2xl font-bold text-gray-700">13</p>
@@ -23,7 +24,7 @@
         </div>
 
         <!-- Kartu Statistik 3 -->
-        <div class="bg-white p-6 rounded-lg shadow-lg">
+        <div class="bg-green-500 p-6 rounded-lg shadow-lg transition-colors duration-300 hover:bg-green-400">
             <h3 class="text-lg font-semibold text-gray-900">Permintaan Bergabung</h3>
             {{-- <p class="text-2xl font-bold text-gray-700">{{ $joinRequests }}</p> --}}
             <p class="text-2xl font-bold text-gray-700">211</p>
