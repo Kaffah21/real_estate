@@ -62,7 +62,7 @@ Route::get('/auth/google', function () {
     return Socialite::driver('google')->redirect();
 })->name('login.google');
 
-Route::get('/auth/google/caIIback', function () {
+Route::get('/auth/google/caIlback', function () {
     $user = Socialite::driver('google')->stateless()->user();
 
     $existingUser = User::where('email', $user->getEmail())->first();
@@ -121,4 +121,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('rumah', RumahController::class);
+});
+
+// Admin routes
+Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
+    Route::resource('properti_rumah', App\Http\Controllers\Admin\PropertiRumahController::class);
+    Route::resource('properti_villa', App\Http\Controllers\Admin\PropertiVillaController::class);
 });

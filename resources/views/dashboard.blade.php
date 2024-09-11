@@ -47,29 +47,61 @@
         </nav>
 
     </x-slot> --}}
-<div>
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    {{-- {{ __("Selamat datang") }} --}}
-                                       <!-- Slideshow -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Custom styling for the carousel controls */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: 3rem;
+            height: 3rem;
+        }
 
-                    <div class="relative">
-                        <div class="relative h-64 overflow-hidden rounded-lg">
-                            <div class="absolute inset-0">
-                                <div class="flex items-center justify-center w-full h-full">
-                                    <div class="w-full h-full bg-gray-200 animate-pulse"></div>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0">
-                                <div class="flex items-center justify-center w-full h-full">
-                                    <div class="w-full h-full bg-gray-300 animate-pulse"></div>
-                                </div>
-                            </div>
-                            <div class="absolute inset-0">
-                                <div class="flex items-center justify-center w-full h-full">
-                                    <div class="w-full h-full bg-gray-400 animate-pulse"></div>
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+        }
+    </style>
+    <div>
+        <div class="py-12">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                    <div class="p-6 text-gray-900">
+                        <!-- Slideshow -->
+                        <div class="relative">
+                            <div class="relative h-64 overflow-hidden rounded-lg">
+                                <!-- Carousel -->
+                                <div id="carouselExampleIndicators" class="carousel slide relative w-full" data-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                                    </ol>
+                                    <div class="carousel-inner relative w-full overflow-hidden">
+                                        <!-- Slide 1 -->
+                                        <div class="carousel-item active relative float-left w-full">
+                                            <img src="asset/villa.jpg" class="block w-full h-64 object-cover" alt="Slide 1">
+                                        </div>
+                                        <!-- Slide 2 -->
+                                        <div class="carousel-item relative float-left w-full">
+                                            <img src="https://via.placeholder.com/800x400?text=Slide+2" class="block w-full h-64 object-cover" alt="Slide 2">
+                                        </div>
+                                        <!-- Slide 3 -->
+                                        <div class="carousel-item relative float-left w-full">
+                                            <img src="https://via.placeholder.com/800x400?text=Slide+3" class="block w-full h-64 object-cover" alt="Slide 3">
+                                        </div>
+                                    </div>
+                                    <!-- Controls -->
+                                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -77,6 +109,11 @@
                 </div>
             </div>
         </div>
+
+        <!-- Include Bootstrap JS and dependencies -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </div>
 
 
