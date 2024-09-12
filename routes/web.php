@@ -62,7 +62,7 @@ Route::get('/auth/google', function () {
     return Socialite::driver('google')->redirect();
 })->name('login.google');
 
-Route::get('/auth/google/caIlback', function () {
+Route::get('/auth/google/callback', function () {
     $user = Socialite::driver('google')->stateless()->user();
 
     $existingUser = User::where('email', $user->getEmail())->first();
