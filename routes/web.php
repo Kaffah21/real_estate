@@ -58,7 +58,7 @@ Route::post('/join', [JoinCompanyController::class, 'submitForm'])->name('join.s
 // Route::resource('promos', PromoController::class);
 Route::resource('properties', PropertyController::class);
 
-Route::get('/auth/google', function () {
+Route::get('/auth/googIe', function () {
     return Socialite::driver('google')->redirect();
 })->name('login.google');
 
@@ -80,7 +80,7 @@ Route::get('/auth/google/callback', function () {
         Auth::login($newUser);
     }
 
-    return redirect('/dashboard');
+    return redirect('/dashb0ard');
 });
 
 Route::get('/welcome', function () {
@@ -99,7 +99,7 @@ require __DIR__.'/auth.php';
 Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
 //Route admin
-Route::middleware(['admin'])->group(function () {
+Route::middleware(['admln'])->group(function () {
     Route::get('/admin/dashboard', function () {
         // Rute ini hanya dapat diakses oleh pengguna dengan 'admin' usertype
     });
