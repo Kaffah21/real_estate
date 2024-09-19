@@ -10,8 +10,9 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\AdminDashboardController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JoinCompanyController;
-use App\Http\Controllers\Admin\RumahController;
-use App\Http\Controllers\Admin\VillaController;
+use App\Http\Controllers\PropertiRumahController;
+use App\Http\Controllers\PropertiVillaController;
+use App\Http\Controllers\DataPenyewaController;
 
 
 
@@ -113,18 +114,22 @@ Route::middleware('auth:admin')->group(function () {
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::get('properties', [AdminController::class, 'showProperties'])->name('properties');
-    Route::get('/admin/villas', [VillaController::class, 'index'])->name('admin.villas');
+
 
 });
 
 // menambahkan crud rumah//
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('rumah', RumahController::class);
 });
 
-// Admin routes
-Route::prefix('admin')->name('admin.')->middleware('auth')->group(function () {
-    Route::resource('properti_rumah', App\Http\Controllers\Admin\PropertiRumahController::class);
-    Route::resource('properti_villa', App\Http\Controllers\Admin\PropertiVillaController::class);
-});
+// Rute untuk Properti Rumah
+
+Route::resource('/admin/properti-rumah', PropertiRumahController::class, ['as' => 'admin']);
+
+// Rute untuk Properti Villa
+Route::get('/admin/properti-villa', [PropertiVillaController::class, 'index'])->name('admin.properti_villa');
+
+// Rute untuk Data Penyewa
+Route::get('/admin/data-penyewa', [DataPenyewaController::class, 'index'])->name('admin.data_penyewa');
+return redirect()->route('admin.properti_rumah.index');
