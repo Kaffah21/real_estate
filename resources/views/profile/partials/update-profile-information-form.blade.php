@@ -13,16 +13,18 @@
         @csrf
     </form>
 
-    <form method="post" action="{{ route('profile.update') }}" class="mt-6 space-y-6">
+    <form method="post" action="{{ route('profile.update') }}" enctype="multipart/form-data" class="mt-6 space-y-6">
         @csrf
         @method('patch')
 
+        <!-- Name Field -->
         <div>
             <x-input-label for="name" :value="__('Name')" />
             <x-text-input id="name" name="name" type="text" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
             <x-input-error class="mt-2" :messages="$errors->get('name')" />
         </div>
 
+        <!-- Email Field -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
             <x-text-input id="email" name="email" type="email" class="mt-1 block w-full" :value="old('email', $user->email)" required autocomplete="username" />
@@ -47,6 +49,27 @@
             @endif
         </div>
 
+        <!-- Profile Image Upload -->
+        <div>
+            <x-input-label for="profile_image" :value="__('Profile Image')" />
+            <input id="profile_image" name="profile_image" type="file" class="mt-1 block w-full" accept="image/*" />
+            <x-input-error class="mt-2" :messages="$errors->get('profile_image')" />
+
+            <!-- Display current profile image or initials -->
+            <div class="mt-2">
+                @if ($user->profile_image)
+                    <!-- If user has a profile image, display it -->
+                    <img src="{{ asset('storage/' . $user->profile_image) }}" alt="{{ $user->name }}" class="h-20 w-20 rounded-full object-cover">
+                @else
+                    <!-- Display initials if no profile image -->
+                    <div class="h-20 w-20 flex items-center justify-center bg-gray-500 text-white rounded-full">
+                        <span class="text-xl font-medium">{{ strtoupper(substr($user->name, 0, 1)) }}</span>
+                    </div>
+                @endif
+            </div>
+        </div>
+
+        <!-- Save Button -->
         <div class="flex items-center gap-4">
             <x-primary-button>{{ __('Save') }}</x-primary-button>
 

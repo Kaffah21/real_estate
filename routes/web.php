@@ -123,7 +123,7 @@ Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.u
 
 
 Route::get('/admin/users/{id}/edit', [AdminUserController::class, 'edit'])->name('admin.users.edit');
-Route::put('/admin/users/{id}', [AdminUserController::class, 'update'])->name('admin.users.update');
+Route::put('/admin/users/{id}', [AdminController::class, 'update'])->name('admin.users.update');
 
 
 // menambahkan crud rumah//

@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
+use App\Models\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller; // Pastikan ini ada
 
@@ -24,26 +25,45 @@ class AdminUserController extends Controller
     // Memproses update data user admin
     public function update(Request $request, $id)
     {
-        $admin = User::findOrFail($id);
+        $admin = Admin::findOrFail($id);
 
-        // Validasi data input
-        $validatedData = $request->validate([
+        $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,'.$admin->id,
+            'email' => 'required|email|unique:admins,email,' . $admin->id,
             'password' => 'nullable|string|min:8|confirmed',
+            'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048', // validate image file
         ]);
 
-        // Update data admin
-        $admin->name = $validatedData['name'];
-        $admin->email = $validatedData['email'];
+        $admin->name = $request->name;
+        $admin->email = $request->email;
 
-        // Update password jika diisi
-        if ($request->filled('password')) {
-            $admin->password = bcrypt($validatedData['password']);
+        // Handle password update
+        if ($request->password) {
+            $admin->password = bcrypt($request->password);
+        }
+
+        // Handle profile image upload
+        if ($request->hasFile('profile_image')) {
+            // Delete old image if exists
+            if ($admin->profile_image) {
+                Storage::delete('public/' . $admin->profile_image);
+            }
+
+            // Store the new image
+            $path = $request->file('profile_image')->store('profile_images', 'public');
+            $admin->profile_image = $path;
         }
 
         $admin->save();
 
-        return redirect()->route('admin.users.index')->with('success', 'Admin updated successfully.');
+        return redirect()->route('admin.users.index')->with('success', 'Admin updated successfully!');
     }
+
+    public function up()
+{
+    Schema::table('admins', function (Blueprint $table) {
+        $table->string('profile_image')->nullable()->after('password');
+    });
+}
+
 }
