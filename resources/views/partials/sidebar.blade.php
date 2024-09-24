@@ -6,9 +6,7 @@
 
         <!-- Menu Items -->
         <div class="flex-grow px-4 space-y-4">
-            <a href="{{ route('admin.properti_rumah') }}" class="block text-gray-200 hover:text-white">
-                Properti Rumah
-            </a>
+
             <a href="{{ route('admin.properti_villa') }}" class="block text-gray-200 hover:text-white">
                 Properti Villa
             </a>
@@ -38,7 +36,7 @@
 
             @if (Auth::check())
 
-            <a href="{{ route('admin.profile.edit') }}" class="text-blue-500 hover:bg-gray-700 px-4 py-2 rounded-md mt-4 block">Edit Profil</a>
+            <a href="{{ route('admin.users.index') }}">Edit</a>
 
                 <form method="POST" action="{{ route('logout') }}" class="mt-4">
                     @csrf

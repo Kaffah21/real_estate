@@ -13,6 +13,7 @@ use App\Http\Controllers\JoinCompanyController;
 use App\Http\Controllers\PropertiRumahController;
 use App\Http\Controllers\PropertiVillaController;
 use App\Http\Controllers\DataPenyewaController;
+use App\Http\Controllers\Admin\AdminUserController;
 
 
 
@@ -118,6 +119,13 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 });
 
+Route::get('/admin/users', [AdminUserController::class, 'index'])->name('admin.users.index');
+
+
+Route::get('/admin/users/{id}/edit', [AdminUserController::class, 'edit'])->name('admin.users.edit');
+Route::put('/admin/users/{id}', [AdminUserController::class, 'update'])->name('admin.users.update');
+
+
 // menambahkan crud rumah//
 
 Route::prefix('admin')->name('admin.')->group(function () {
@@ -125,11 +133,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 // Rute untuk Properti Rumah
 
-Route::resource('/admin/properti-rumah', PropertiRumahController::class, ['as' => 'admin']);
 
 // Rute untuk Properti Villa
 Route::get('/admin/properti-villa', [PropertiVillaController::class, 'index'])->name('admin.properti_villa');
 
 // Rute untuk Data Penyewa
 Route::get('/admin/data-penyewa', [DataPenyewaController::class, 'index'])->name('admin.data_penyewa');
-return redirect()->route('admin.properti_rumah.index');
