@@ -1,8 +1,17 @@
-<aside class="w-64 bg-gray-800 h-screen shadow-lg sidebar">
+<aside class="w-64 bg-gray-500 h-screen shadow-lg sidebar">
     <div class="flex flex-col h-full text-white">
-        <div class="flex-shrink-0 flex items-center px-4 py-6">
-            <a href="{{ route('admin.dashboard') }}" class="font-bold text-xl">Dashboard</a>
+
+        <!-- Logo Section -->
+        <div class="flex-shrink-0 flex items-center alight-center px-4 py-6">
+            <a href="{{ route('admin.dashboard') }}">
+                <img src="/asset/logo.png" alt="Logo" class="h-12 w-auto">
+                <div class="flex-shrink-0 flex items-center px-4 py-6">
+                    <a href="{{ route('admin.dashboard') }}" class="font-bold text-xl">Dashboard</a>
+                </div>
+            </a>
         </div>
+
+
 
         <!-- Menu Items -->
         <div class="flex-grow px-4 space-y-4">
@@ -34,7 +43,7 @@
             </div>
 
             <!-- Dropdown Menu -->
-            <div id="profileDropdownMenu" class="hidden absolute left-0 mt-2 w-full bg-gray-700 rounded-md shadow-lg z-10">
+            <div id="profileDropdownMenu" class="hidden absolute left-0 mt-2 w-full bg-gray-600 rounded-md shadow-lg z-10">
                 <a href="{{ route('admin.users.index') }}" class="block px-4 py-2 text-gray-200 hover:bg-gray-600">
                     Edit Profil
                 </a>

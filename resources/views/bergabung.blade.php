@@ -1,10 +1,4 @@
 <x-app-layout>
-    {{-- <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Bergabung dengan perusahaan') }}
-        </h2>
-    </x-slot> --}}
-
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <!-- Informasi tentang perusahaan -->
@@ -23,10 +17,13 @@
                                 Jika Anda tertarik untuk bergabung untuk menyewakan properti Anda, silakan bergabung
                             </p>
 
+                            <!-- Success Alert -->
                             @if (session('success'))
-                                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
-                                    <strong class="font-bold">Sukses!</strong>
+                                <div id="success-alert" class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4">
                                     <span class="block sm:inline">{{ session('success') }}</span>
+                                    <button type="button" class="absolute top-0 bottom-0 right-0 px-4 py-3" onclick="closeAlert()">
+                                        <span class="text-green-500">&times;</span>
+                                    </button>
                                 </div>
                             @endif
 
@@ -103,7 +100,12 @@
                 document.getElementById('join-form').submit();
             }, 1000); // Delay 1 detik
         }
+
+        function closeAlert() {
+            document.getElementById('success-alert').style.display = 'none';
+        }
     </script>
+
     <!-- Include the footer -->
     <x-footer />
 </x-app-layout>

@@ -34,7 +34,7 @@
             <!-- Centered Buttons Section -->
             <div class="flex flex-col items-center mt-4">
                 <!-- Log in Button -->
-                <x-primary-button class="w-full mb-4">
+                <x-primary-button class="w-1/4 mb-4 mx-auto">
                     {{ __('Login') }}
                 </x-primary-button>
 
@@ -48,7 +48,7 @@
 
             <!-- Google Login Button -->
             <div class="flex justify-center mt-6">
-                <a href="{{ route('login.google') }}" class="flex items-center justify-center w-full bg-white border border-gray-300 rounded-lg shadow-md py-2 px-4 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
+                <a href="{{ route('login.google') }}" class="flex items-center justify-center w-3/4 bg-white border border-gray-300 rounded-lg shadow-md py-2 px-4 text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500">
                     <img src="https://th.bing.com/th/id/OIP.Fll7WPtNT6jrz1oBP8GbCgHaHj?w=166&h=180&c=7&r=0&o=5&pid=1.7" alt="Google Logo" class="h-5 w-5 mr-3" />
                     <span>Login with Google</span>
                 </a>

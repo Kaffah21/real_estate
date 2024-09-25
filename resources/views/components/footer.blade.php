@@ -21,6 +21,8 @@
                     <a href="#" class="text-gray-400 hover:text-gray-300">Tentang</a>
                     <a href="#" class="text-gray-400 hover:text-gray-300">Villa</a>
                     <a href="#" class="text-gray-400 hover:text-gray-300">Rumah</a>
+                    <a href="#" class="text-gray-400 hover:text-gray-300">Bergabung</a>
+
                 </div>
                 <a href="#" class="text-gray-400 hover:text-gray-300" aria-label="Facebook">
                     <i class="fab fa-facebook-f"></i>
