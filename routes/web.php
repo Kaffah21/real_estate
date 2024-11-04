@@ -3,7 +3,6 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PromoController;
 use App\Http\Controllers\PropertyController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\CommentController;
@@ -57,7 +56,6 @@ Route::post('/join', [JoinCompanyController::class, 'submitForm'])->name('join.s
 });
 // Route::get('/villa', [App\Http\Controllers\VillaController::class, 'index'])->name('villa');
 
-// Route::resource('promos', PromoController::class);
 Route::resource('properties', PropertyController::class);
 
 Route::get('/auth/google', function () {
